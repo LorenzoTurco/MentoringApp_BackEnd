@@ -10,9 +10,11 @@ const userProfileSchema = new mongoose.Schema({
   },
   header:{
       type: String, 
-  }
+  },
+  tags: {
+    type: [String],
+    }
 
-  //need to store tags to search them by 
 
 })
 

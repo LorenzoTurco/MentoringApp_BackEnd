@@ -10,7 +10,7 @@ router.post('/signup', async (req,res) =>{
     
     const user = new User({
         email : req.body.email,
-        password : hashedPassword
+        password : hashedPassword,
     })
 
     try{
