@@ -5,7 +5,7 @@
 -Ashish
 
 #### Installation
-- Ensure Node.js and Express.js are installed
+- Ensure Node.js is installed
 - Add a .env file with following variables (will be provided in SWE Group Project submission's comment section)
 ```
 MONGO_URI =          #db connection
