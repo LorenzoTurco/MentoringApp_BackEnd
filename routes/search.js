@@ -2,13 +2,13 @@ const router = require('express').Router()
 const verify = require('../middlewares/authorise')
 const User = require('../model/User')
 const UserProfile = require('../model/UserProfile')
-
+const MentorProfile = require('../model/MentorProfile')
 const TAGLIST =  ["AI", "HR", "Scientist", "Career", "Music", "Leadership"]
 
 router.get('/name/:name', async (req,res) =>{
     const name = req.params.name
     console.log(name)
-    const mentors = await UserProfile.find({name: {$regex: name, $options: 'i'}}).limit(10);
+    const mentors = await MentorProfile.find({name: {$regex: name, $options: 'i'}}).limit(10);
 
     res.send({mentors: mentors})
 })
@@ -27,7 +27,7 @@ router.post('/bytags', async (req,res) =>{
     })
 
     console.log(selectedTags);
-    const mentors = await UserProfile.find({tags: {$in : selectedTags} }).limit(10)
+    const mentors = await MentorProfile.find({tags: {$in : selectedTags} }).limit(10)
     res.send({mentors: mentors})
 
 

@@ -1,22 +1,9 @@
 const mongoose = require('mongoose')
 
-
-const Event = new mongoose.Schema({
-    date: {
-        type: String
-    },
-    title: {
-        type: String
-    },
-    name: {
-        type: String
-    }
-})
-
-
 const Experience = new mongoose.Schema({
     title: {
         type : String,
+        requried: true
     },
     monthFrom: {
         type : String,
@@ -35,7 +22,7 @@ const Experience = new mongoose.Schema({
     }
 })
 
-const userProfileSchema = new mongoose.Schema({
+const mentorProfileSchema = new mongoose.Schema({
   userId: {
       type: String,
       requried: true,
@@ -49,15 +36,12 @@ const userProfileSchema = new mongoose.Schema({
   tags: {
     type: [String],
   },
-  aboutMe:{
-    type: String,
-  },
-  calendar:{
-    type: [Event]
-  },
-  experiences:{
+  experiences: {
     type: [Experience]
-  }
+  },
+  aboutMe: {
+      type: String
+  },
 })
 
-module.exports = mongoose.model('UserProfile', userProfileSchema)
+module.exports = mongoose.model('MentorProfile', mentorProfileSchema)
